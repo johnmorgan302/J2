@@ -1,0 +1,40 @@
+@page
+@model J2.Pages.Vendors.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vendors</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vendor</th>
+            <th>Phone</th>
+            <th>Web</th>
+            <th>E-mail</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vendor) {
+        <tr>
+            <td>
+                <a href="@item.mainUrl"><img src="/logo/@item.logo" alt="@item.vendorName" width="100px"></a>
+            </td>
+            <td>@item.supportPhone</td>
+            <td><a href="@item.supportUrl">@item.vendorName Support</a></td>
+            <td><a href="mailto:@item.supportEmail">@item.supportEmail</a></td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.VendorID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.VendorID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.VendorID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

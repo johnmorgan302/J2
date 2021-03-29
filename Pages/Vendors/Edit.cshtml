@@ -1,0 +1,60 @@
+@page
+@model J2.Pages.Vendors.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vendor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Vendor.VendorID" />
+            <div class="form-group">
+                <label asp-for="Vendor.vendorName" class="control-label"></label>
+                <input asp-for="Vendor.vendorName" class="form-control" />
+                <span asp-validation-for="Vendor.vendorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendor.logo" class="control-label"></label>
+                <input asp-for="Vendor.logo" class="form-control" />
+                <span asp-validation-for="Vendor.logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendor.supportPhone" class="control-label"></label>
+                <input asp-for="Vendor.supportPhone" class="form-control" />
+                <span asp-validation-for="Vendor.supportPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendor.mainUrl" class="control-label"></label>
+                <input asp-for="Vendor.mainUrl" class="form-control" />
+                <span asp-validation-for="Vendor.mainUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendor.supportUrl" class="control-label"></label>
+                <input asp-for="Vendor.supportUrl" class="form-control" />
+                <span asp-validation-for="Vendor.supportUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendor.supportEmail" class="control-label"></label>
+                <input asp-for="Vendor.supportEmail" class="form-control" />
+                <span asp-validation-for="Vendor.supportEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

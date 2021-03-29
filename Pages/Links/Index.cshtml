@@ -1,0 +1,42 @@
+@page
+@model J2.Pages.Links.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Links</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Link[0].systemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Link[0].Vendor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Link) {
+        <tr>
+            <td>
+                <a href="@item.url">@item.systemName</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.vendorName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.LinkID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.LinkID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.LinkID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
