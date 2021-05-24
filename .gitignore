@@ -443,3 +443,8 @@ $RECYCLE.BIN/
 
 # Don't back up the Logos
 .Logos/*
+
+## Don't back up the Database
+## Let Migrations Handle.
+
+J2.db
